@@ -1,0 +1,22 @@
+.comment{
+     width: 80%;
+     padding: 16px;
+     text-align: center;
+     border: 1px solid grey;
+     box-shadow: 0 2px 3px #ccc;
+     margin: 5em;
+     margin-left:3em;
+     box-sizing: border-box;
+     cursor: pointer;
+}
+.comment:hover{
+     background-color: rgb(196, 200, 211);
+}
+
+.btn{
+ margin:15px;
+ font-size: x-large;
+}
+.btn:hover{
+     background-color:rgb(196, 200, 211);
+}
