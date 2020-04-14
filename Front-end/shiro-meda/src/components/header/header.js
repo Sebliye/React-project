@@ -1,6 +1,7 @@
 import React from 'react';
 import Radium from 'radium';
 import './header.css'
+import { Link } from 'react-router-dom';
 //import styled from 'styled-components';
 class Header extends React.Component{
 render(){
@@ -15,10 +16,10 @@ const signupstype={
       return(
        <header>
         <ul className="nav">
-          <li style={ShiromedaStyle}><a href="/"><strong style={{backgroundColor:'red',color:'white'}}>SHIRO MEDA</strong></a></li>
-          <li style={signupstype}><a href='/'>signup</a></li>
-          <li><a href="/">SignIn</a></li>
-          <li><a href='/'>Add</a></li>
+          <li style={ShiromedaStyle}><Link to="/home"><strong style={{backgroundColor:'red',color:'white'}}>SHIRO MEDA</strong></Link></li>
+          <li style={signupstype}><Link to='/sign-up'>signup</Link></li>
+          <li><Link to="/sign-in">SignIn</Link></li>
+          <li><Link href='/add'>Add</Link></li>
         </ul>
       </header>
     
