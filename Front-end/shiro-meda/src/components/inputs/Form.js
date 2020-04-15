@@ -1,5 +1,5 @@
 import React,{ Component } from 'react';
-import propTypes from 'prop-types';
+//import propTypes from 'prop-types';
 import Inputs from './inputs/Inputs';
 class Form extends Component{
     goodFormatToInputs = ()=>{
