@@ -1,0 +1,38 @@
+.row {
+    margin: 50px;
+    }
+    .row  input  {
+        display:block;
+        margin:12px;
+        width: 25%;
+        padding:7px;
+        border-radius: .5em;
+    
+    }
+    
+    .row  textarea  {
+    display:block;
+        margin:12px;
+        width: 25%;
+        padding:7px;
+        border-radius: .5em;
+    
+    }
+    
+    .row label {
+        margin:10px;
+    }
+    .row form {
+        margin:center;
+        width:40%;
+        border:1px solid #ccc;
+        border-radius: 1rem;
+    }
+    .row h2{
+        margin:20px;
+        
+    }
+    .row button {
+        margin:10px;
+    }
+    

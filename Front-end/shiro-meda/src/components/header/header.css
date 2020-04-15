@@ -1,23 +1,38 @@
-.nav{
-  background-color:ghostwhite;
-  list-style-type:none;
-  text-align:left;
-  margin:0;
-  padding:0;
-  border-bottom:1px solid red;
+
+html, body, div, p, ul, li {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 100;
 }
-.nav li{
-  display:inline-block;
-  font-size:20px;
-  padding:0px;
-  border-bottom:red;
+
+/* This class is applied to the containing div <div class="nav"> and is used to set the background color and height of the navbar */
+.nav {
+  background: #26272b;
+  height: 60px; /* set same as height & line-height below */
 }
-li a{
-  display:block;
-  color:black;
-  padding:12px 12px;
-  text-decoration:none;
+
+/* This rule centers the nav items verticaly in the bar with the height and line height properties. Spacing between the nav items is controlled by setting right and left padding.  */
+.nav li {
+  display: inline-block;
+  list-style: none;
+  height: 60px; /* should be the same as line-height */
+  line-height: 60px; /* should be the same as height */
+  padding: 0 40px; /* "0" sets top and bottom padding to none */
 }
-li a:hover{
-  color:rgb(253, 61, 61);
+
+/* :hover allows you change the background color of the nav items when you mouse over them. Play around with the transition value to change the speed of the hover transition. */
+.nav li:hover {
+  background: #3366cc;
+  transition: background .3s;
+}
+
+/* This rule is applied to the link <a> tag. It lets you turn off the link underline and set the link text color. */
+.nav-link {
+  color: #fff;
+  text-decoration: none;
 }

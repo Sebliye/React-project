@@ -6,11 +6,14 @@ const jwt=require('jsonwebtoken');
 
 const prdRoute = require('./routes/router.product');
 const userRoute=require('./routes/router.user');
+const uaaMiddleware = require('./Jwt/UaaMiddleware');
 const app = express();
 
 app.use(cors());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended : true}));
+
+app.use(uaaMiddleware.authenticate);
 
 app.use(prdRoute);
 app.use(userRoute);

@@ -1,11 +1,23 @@
 import React,{ Component } from 'react';
 import { Link } from 'react-router-dom';
+import axios from 'axios';
 
 import Aux from '../../hoc/Auxilary'
 class Home extends Component{
 
+   state = {
+       product:null
+   }
+   
+   componentDidMount(){
+
+   }
+   
+   
+   
+   
     render(){
-     
+        localStorage.setItem("taken", '');
         return (
             <Aux>
                 

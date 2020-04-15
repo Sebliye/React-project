@@ -2,9 +2,10 @@ const Product = require('../models/model.product');
 const Comment = require('../models/model.comment');
 const User = require('../models/model.user');
 
-  exports.getAllProducts = (req, res, next) => {
-    Product.find().then((data)=> {
-      res.json(avgRateForEachPrd(data))
+  exports.getAllProducts = (req, res, next) => {    
+    Product.find().then((data)=> { //console.log(avgRateForEachPrd(data));
+     // res.json(avgRateForEachPrd(data))
+     res.json(data);
     } ).catch(e=>res.json(e));  
   };
 
@@ -99,16 +100,20 @@ const User = require('../models/model.user');
    return Comment.find({_id: {$in: cids}});
   }
 
-  function avgRateForEachPrd(prdArr){
-      
-    let temp = prdArr.map(prd=>{
-       let sumRate = prd.comments.map(comment=>comment.rate).reduce((a,b)=>a+b);
-       let avgRate = sumRate/prd.comments.length; 
-       return {
-         product: prd,
-         avgRate: Math.floor(avgRate)
-       }
-    });
+//   function avgRateForEachPrd(prdArr){
+//     let temp= null;
+// //console.log(prdArr);
+//      temp = prdArr.map(prd=>{  return prd;
 
-    return temp;
-  }
+//        let sumRate = prd.comments.map(comment=>comment.rate).reduce((a,b)=>a+b);
+//        let avgRates = sumRate/prd.comments.length;
+//        let retu = { product: prd, avgRate: Math.floor(avgRates) };
+//       // console.log(retu);
+     
+//     // return prd;
+       
+//     });
+    
+//     console.log( temp);
+//      return temp;
+//   }
