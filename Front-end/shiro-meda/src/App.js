@@ -9,9 +9,8 @@ function App() {
       <BrowserRouter>
             
             <RouterComponents />        {/* it is like body */}
-            
+            <Footer></Footer>
       </BrowserRouter>
   );
 }
 export default App;;
-//<Footer></Footer>

@@ -1,6 +1,7 @@
 import React,{ Component } from 'react';
 import propTypes from 'prop-types';
 import Inputs from './Inputs';
+import "./NewProduct.css";
 class Form extends Component{
     goodFormatToInputs = ()=>{
         const eachTagContaintes = [];
@@ -31,8 +32,10 @@ class Form extends Component{
          });
         return (
             <form>
+                <div className="row">
                 {inputTag}
                 <button type='submit' onClick={this.props.clicked}> {this.props.btn} </button>
+                </div>
             </form>
         );
     }

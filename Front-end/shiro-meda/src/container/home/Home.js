@@ -1,10 +1,9 @@
 import React, { Component } from "react";
 import axios from "axios";
-import { Link } from 'react-router-dom';
+
 import ListProduct from "../../components/Products/NewProduct/PostProduct";
-import ProductList from "../../components/Products/ProductList/ProductList";
-import NewProduct from "../../components/Products/NewProduct/NewProduct";
 import "./Blog.css";
+
 
 class Blog extends Component {
   state = {
@@ -23,27 +22,20 @@ class Blog extends Component {
     });
   }
 
-  // postClickHandler = (id) => {
-  //   this.setState({ clickedPostId: id });
-  // };
 
   render() {
     localStorage.setItem("taken", '');   
     const products = this.state.products.map((item) => {
       return (
-        <Link to='/comment' key={item._id}>
+        
         <ListProduct
           key={item._id}
           name={item.name}
           imageUrl={item.image}
           price={item.price}
-        //  comments={item.comments}
-          // postClicked={() => {
-          //   this.postClickHandler(item.id);
-          // }
-          // }
+          pid={item._id}
         />
-        </Link>
+        
       );
     });
 

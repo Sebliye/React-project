@@ -2,7 +2,7 @@ import React from 'react';
 import axios from 'axios';
 //import Input from '../inputs/Inputs';
 import Aux from '../../hoc/Auxilary'
-import Form from '../inputs/Form'
+import Form from '../../components/inputs/Form'
 class SignUp extends React.Component{
    state = {
       firstname:{

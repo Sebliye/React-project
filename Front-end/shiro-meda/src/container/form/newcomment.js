@@ -1,5 +1,5 @@
 import React,{ Component } from 'react';
-import Rate from '../rating/Rating';
+import Rate from '../../components/rating/Rating';
 class NewComment extends Component{
 
     state = {
