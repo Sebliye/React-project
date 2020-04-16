@@ -31,7 +31,7 @@ app.use(userRoute);
 //   uri:process.env.MONGODB_URL,
 //   collection:'sessions'
 // });
-const MONGO_URL=`mongodb+srv://seble:<password>@cluster0-ehp1r.mongodb.net/test?retryWrites=true&w=majority`
+//const MONGO_URL=`mongodb+srv://seble:<password>@cluster0-ehp1r.mongodb.net/test?retryWrites=true&w=majority`
 // const MONGODB_URL=`mongodb+srv://${process.env.MONGO_USER}:${
 // process.env.MONGO_PWD}@cluster0-oxo7g.mongodb.net/${process.env.MONGO_DBNAME}?retryWrites=true&w=majority`;
 
