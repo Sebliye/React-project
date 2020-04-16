@@ -35,16 +35,16 @@ app.use(userRoute);
 // const MONGODB_URL=`mongodb+srv://${process.env.MONGO_USER}:${
 // process.env.MONGO_PWD}@cluster0-oxo7g.mongodb.net/${process.env.MONGO_DBNAME}?retryWrites=true&w=majority`;
 
-mongoose.connect(process.env.MONGO_URL, { useNewUrlParser: true, useUnifiedTopology: true })
-.then(() => {
-app.listen(process.env.PORT || 8081);
-}).catch(err=>console.log(err));
+// mongoose.connect(process.env.MONGO_URL, { useNewUrlParser: true, useUnifiedTopology: true })
+// .then(() => {
+// app.listen(process.env.PORT || 8081);
+// }).catch(err=>console.log(err));
 
 
-// mongoose.connect('mongodb://localhost:27017/shiromeda', {            
-//     useNewUrlParser: true, useUnifiedTopology: true }) 
-//     .then(() => { 
-//         app.listen(8080, ()=>{
-//             console.log('server 8081 is start!! ');
-//         });
-//     }).catch(err => console.error(err));
+mongoose.connect('mongodb://localhost:27017/shiromeda', {            
+    useNewUrlParser: true, useUnifiedTopology: true }) 
+    .then(() => { 
+        app.listen(8081, ()=>{
+            console.log('server 8081 is start!! ');
+        });
+    }).catch(err => console.error(err));

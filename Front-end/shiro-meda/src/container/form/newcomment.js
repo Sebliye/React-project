@@ -41,17 +41,16 @@ class NewComment extends Component{
             userObj['pid']=this.props.match.params.pid;
             
             let token = localStorage.getItem('taken');
-          return axios.post('http://localhost:8081/cmt',userObj,{
+          axios.post('http://localhost:8081/cmt',userObj,{
                 headers: {
                     'Authorization': `${token}`
                   }                
             })
             .then(obj=>{
-               alert(obj.data.status);
               console.log(obj);
             }).catch(e=>console.log(e));
+            this.props.history.push('/comment/'+this.props.match.params.pid)
         }
-
         setRating = (rate)=>{
             let temp = {pid:this.props.match.params.pid, rate:rate};
             let token = localStorage.getItem('taken');
@@ -65,9 +64,7 @@ class NewComment extends Component{
                 console.log(obj);
               }).catch(e=>console.log(e));
         }
-
     render(){
-     
         return (
                <Aux>
                    <Rate setRating={this.setRating}/>
@@ -78,10 +75,8 @@ class NewComment extends Component{
                    />
                </Aux>
         );
-     
     }
 }
-
 export default NewComment;
 
 // setComment = (pid,uid,comment)=>{

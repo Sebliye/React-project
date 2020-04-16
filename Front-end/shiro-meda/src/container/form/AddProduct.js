@@ -5,7 +5,6 @@ import Aux from '../../hoc/Auxilary';
 import Form from '../../components/inputs/Form';
 
 class AddProduct extends React.Component{
-
     state = {
         name:{
             type:'input',
@@ -76,20 +75,18 @@ class AddProduct extends React.Component{
         let token = localStorage.getItem('taken');
            axios.post('http://localhost:8081/save-prd',userObj,{
             headers: {
-                'Authorization': `${token}`
-              }                
+                'Authorization':`${token}`
+              }  
+                         
         })
            .then(obj=>{
-               alert('successfull');
+               alert('are you working')
            });
+            this.props.history.push('/') 
         }
-
-
     render(){    
-
         return (
             <Aux>
-                
             <Form allInputs={this.state}
             changed={this.inputEventHandler}
             clicked={this.formSubmitHandler}
@@ -99,5 +96,4 @@ class AddProduct extends React.Component{
         );
     }
 }
-
 export default AddProduct;

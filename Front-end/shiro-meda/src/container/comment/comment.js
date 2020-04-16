@@ -1,6 +1,6 @@
 import React from 'react';
 import axios from 'axios';
-
+import './comment.css'
 import Aux from '../../hoc/Auxilary';
 import Rating from '../../components/rating/Rating'
 import CommentList from '../../components/commentlist/commentlist';
@@ -11,7 +11,6 @@ class Comment extends React.Component{
 state={
      products: []
 }
-
     componentDidMount(){
          let pid = this.props.match.params.pid;
      axios.get(`http://localhost:8081/cmt/`+pid).then((response) => {
@@ -19,18 +18,13 @@ state={
          this.setState({ products: response.data});
        })
     }
-
-
-
 render(){
      const prod=this.state.products.map((val,i)=>{
           return <CommentList key={i} rates={val.rate} fname={val.firstname} lname={val.lastname} comment={val.comment} ></CommentList>
      })
-
 return(
-
 <Aux>  
-     <Link to={'/new-cmt/'+this.props.match.params.pid} style={{backgroundColor:'grey'}}>write Your Comment here</Link>
+     <Link className='btn' to={'/new-cmt/'+this.props.match.params.pid} >write Your Comment here</Link>
      {/* <Rating setRating={this.setRating}/> */}
      {prod}      
 </Aux>

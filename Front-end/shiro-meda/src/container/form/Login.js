@@ -27,9 +27,8 @@ class Login extends Component{
                 placeholder:'password'
             },
             valid:null
-        }
+        },
     }
-
     //event handler
     inputEventHandler = (event,key)=>{    
         const copyState = { ...this.state }               // dist state
@@ -39,6 +38,7 @@ class Login extends Component{
          distFields.value = event.target.value;
          distStateKey.fields = distFields;          
          copyState[key] = distStateKey;
+         console.log(copyState);
           this.setState(copyState);
 }
 
@@ -49,15 +49,14 @@ formSubmitHandler = (e)=>{
         userObj[key] = this.state[key].fields.value;
       //  this.validation(key , this.state[key].fields.value);      localStorage.getItem("taken")
     }
-    
     axios.post('http://localhost:8081/login',userObj)
     .then(obj=>{
         localStorage.setItem("taken", obj.data.data);
+        
+        this.props.history.push('/')
     });
 }
-
     render(){
-
         return (
             <Aux>
                 <Form allInputs={this.state}

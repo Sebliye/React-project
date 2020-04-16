@@ -40,7 +40,6 @@ class Form extends Component{
         );
     }
 }
-
 Form.propTypes = {
     allInputs:propTypes.object,
     clicked:propTypes.func,

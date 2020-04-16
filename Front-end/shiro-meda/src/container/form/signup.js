@@ -11,11 +11,10 @@ class SignUp extends React.Component{
              fields: {
                  value:'',
                  type:'text',
-                 placeholder:'first name'
+                 placeholder:'first name',
              },
              valid:null
       },
-
       lastname:{
           type:'input',
           lable: 'Last Name',
@@ -61,13 +60,13 @@ class SignUp extends React.Component{
 
   inputEventHandler = (event,key)=>{    
           const copyState = { ...this.state }               // dist state
-          const distStateKey = { ...copyState[key] };       // dist fname or lname or email....
+          const distStateKey = { ...copyState[key] }; 
+          console.log(distStateKey);     // dist fname or lname or email....
           const distFields = { ...distStateKey.fields };     //dist fields
-        
            distFields.value = event.target.value;
            distStateKey.fields = distFields;          
            copyState[key] = distStateKey;
-           
+           console.log(copyState);
             this.setState(copyState);
   }
 
@@ -85,6 +84,7 @@ class SignUp extends React.Component{
        axios.post('http://localhost:8081/sign-up',userObj)
        .then(obj=>{
            console.log(obj);
+           this.props.history.push('/login')
        });
   }
 
@@ -120,7 +120,6 @@ class SignUp extends React.Component{
   render(){
       localStorage.setItem("taken", ''); 
       return (
-
           <Aux>                                 {/* all form containers have to pass allInputs={this.state} for form component*/}
               <Form allInputs={this.state}                                   
                changed={this.inputEventHandler}

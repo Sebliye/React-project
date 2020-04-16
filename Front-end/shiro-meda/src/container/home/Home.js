@@ -3,14 +3,11 @@ import axios from "axios";
 
 import ListProduct from "../../components/Products/NewProduct/PostProduct";
 import "./Blog.css";
-
-
 class Blog extends Component {
   state = {
     products: [],
-    clickedPostId: 0,
+    clickedPostId: 0
   };
-
   /** a creation life cycle hook we use this life cycle for creation / when we first fetch data */ 
   componentDidMount() {
     axios.get(`http://localhost:8081/prd`).then((response) => {
@@ -21,8 +18,6 @@ class Blog extends Component {
       console.log(error);
     });
   }
-
-
   render() {
     // localStorage.setItem("taken", '');   
     const products = this.state.products.map((item) => {
