@@ -23,6 +23,7 @@ exports.getLoginPage=(req,res,next)=>{     console.log(req.body);
      .then(userdb=>{
               if(!userdb){
                res.json({status: 'invalid user'});
+               alert('please sign up first')
                return;
               }
           if(emails===userdb.email&&passwords===userdb.password){

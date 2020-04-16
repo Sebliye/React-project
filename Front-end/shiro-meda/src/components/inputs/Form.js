@@ -6,7 +6,7 @@ class Form extends Component{
     goodFormatToInputs = ()=>{
         const eachTagContaintes = [];
         const distractureState = { ...this.props.allInputs }; 
-        console.log(distractureState+"distracurestate")           // distract input state
+        //console.log(distractureState+"distracurestate")           // distract input state
                for(let key in distractureState){
                    let distEachInput = { ...distractureState[key] };     // distr fname, lname...
                    let distFields = { ...distEachInput.fields };          //dist each tag fields (value, type, placeholder)

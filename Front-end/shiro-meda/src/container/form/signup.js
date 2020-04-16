@@ -56,7 +56,7 @@ class SignUp extends React.Component{
               value:'',
               type:['admin','customer']
           }
-      }
+      },
   }
 
   inputEventHandler = (event,key)=>{    

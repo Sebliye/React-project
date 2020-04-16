@@ -34,12 +34,11 @@ class Login extends Component{
     inputEventHandler = (event,key)=>{    
         const copyState = { ...this.state }               // dist state
         const distStateKey = { ...copyState[key] };       // dist fname or lname or email....
-        const distFields = { ...distStateKey.fields };     //dist fields
-      
+        const distFields = { ...distStateKey.fields }; 
+        console.log(distFields)    //dist fields
          distFields.value = event.target.value;
          distStateKey.fields = distFields;          
          copyState[key] = distStateKey;
-         
           this.setState(copyState);
 }
 

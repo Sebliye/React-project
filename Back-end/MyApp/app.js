@@ -21,7 +21,7 @@ app.use(userRoute);
 mongoose.connect('mongodb://localhost:27017/shiromeda', {            
     useNewUrlParser: true, useUnifiedTopology: true }) 
     .then(() => { 
-        app.listen(8081, ()=>{
+        app.listen(8080, ()=>{
             console.log('server 8081 is start!! ');
         });
     }).catch(err => console.error(err));

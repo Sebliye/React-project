@@ -1,7 +1,6 @@
 import React,{ Component } from 'react';
 import { Route } from 'react-router';
 import { Router, Switch, Redirect } from 'react-router-dom';
-
 import Comments from '../container/comment/comment';
 //import Home from '../container/home/TempHome';
 import Home from '../container/home/Home';
@@ -10,12 +9,30 @@ import LogIn from '../container/form/Login';
 import Header from '../components/header/header';
 import Aux from '../hoc/Auxilary';
 import AddProduct from '../container/form/AddProduct';
+import AsyncComponent from '../hoc/asyncComponent'
 
 class RouterComponents extends Component{
 
     state = {
-        auth:false
+        auth:false,
+        redirect:false
     }
+//     setRedirect = () => {
+//     this.setState({
+//       redirect: true
+//     })
+//   }
+//   renderRedirect = () => {
+//     if (this.state.redirect) {
+//       return <Redirect to='/login' />
+//     }
+//   }
+const AsyncHome=AsyncComponent(()=>{
+   return import('../../components/NewPost/NewPost');
+});
+
+
+
     render(){
      
         return (
@@ -24,9 +41,11 @@ class RouterComponents extends Component{
                 <Switch>
                     <Route path='/' exact  component={Home}/>
                     <Route path='/comment/:pid' exact component={Comments}/>
-                    <Route path='/sign-up' exact component={Signup}/>             
+                    {/* {this.state.redirect=true}
+                    <Redirect from ='/sign-up' to='login'/> */}
+                    <Route path='/sign-up' exact component={Signup}/>  
                     <Route path='/login' exact component={LogIn}/>
-                    <Route path='/logout' exact  component={Home}/>
+                    <Route path='/logout' exact  component={AsyncHome}/>
                     <Route path='/add-prd' exact component={AddProduct}/>
                 </Switch>
             </Aux>
