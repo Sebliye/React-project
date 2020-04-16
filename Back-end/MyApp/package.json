@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "start":"set MONGO_URL=mongodb+srv://seble:721Hewan@@cluster0-ehp1r.mongodb.net/shiro-meda?retryWrites=true&& nodemon app.js"
+    "start":"set MONGO_URL=mongodb+srv://seble:721Hewan@@cluster0-ehp1r.mongodb.net/shiromeda && nodemon app.js"
   },
   "dependencies": {
     "cookie-parser": "~1.4.4",
