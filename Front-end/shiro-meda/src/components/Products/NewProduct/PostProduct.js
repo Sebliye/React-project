@@ -3,10 +3,12 @@ import "./PostProduct.css";
 import Aux from "../../.././hoc/Auxilary";
 import PropTypes from 'prop-types'
 import { Link } from 'react-router-dom';
+import ErrorBoundary from '../../../container/error/errorboundary'
 const productPost = (props) => {
   return (
     <Aux>
-      <article className="Post" style={{backgroundColor:'gainsboro'}}>
+      <ErrorBoundary>
+         <article className="Post" style={{backgroundColor:'gainsboro'}}>
         <div className="Author">
           <div style={{color:'red'}}>
             <img src={props.imageUrl}/>
@@ -14,10 +16,11 @@ const productPost = (props) => {
             <div> Product Price: {props.price}</div>
             {/* <div> Product Image:{props.imageUrl}</div> */}
           </div>
-          
         </div>
         <Link to={'/comment/'+props.pid}> comments </Link>
       </article>
+      </ErrorBoundary>
+     
     </Aux>
   );
 };

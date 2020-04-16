@@ -13,7 +13,6 @@ const inputs = (props)=>{
                 </div>
             )
          break;
-         
          case('textarea'):
             inputTag = (
                 <div>
@@ -47,5 +46,4 @@ const inputs = (props)=>{
         </Aux>
     );
 }
-
 export default inputs;

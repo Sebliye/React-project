@@ -22,15 +22,13 @@ const CommentList=(props)=>{
      }
 
 return(
-     <div>
-      
      <div className='comment'>
           {/* <p>{props.rates}</p>  */}
           <DisRating rate={props.rates}/>
           <h3 style={{color:'red'}}>{props.fname+" "}{props.lname}</h3>
           {disComments()}
      </div>
-     </div>
+    
 )
 }
 export default CommentList;
