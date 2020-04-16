@@ -2,6 +2,8 @@ const Product = require('../models/model.product');
 const Comment = require('../models/model.comment');
 const User = require('../models/model.user');
 
+const jwtManager = require('../Jwt/jwtManager');
+
   exports.getAllProducts = (req, res, next) => {    
     Product.find().then((data)=> { //console.log(avgRateForEachPrd(data));
      // res.json(avgRateForEachPrd(data))
@@ -13,25 +15,30 @@ const User = require('../models/model.user');
     Product.findById(req.params.productId).then((data) => res.json(data));
   };
 
-  exports.postProduct = (req, res, next) => {
+  exports.postProduct = (req, res, next) => {            
+   //console.log(req.body);
       new Product(req.body).save().then(r=>res.json(r));
   };
 
   exports.postComment = (req, res, next) => {
-    new Comment(req.body.comment).save().then(cmt=>{
-      Product.findById(req.body.pid).then(prd=>{       console.log(prd);
-          const uidIndex = prd.comments.findIndex(obj=>obj.userId == req.body.uid);
+ 
+      let data = jwtManager.verify(req.headers.authorization);
+      let uid = data._id;
+     // console.log(uid);
+    new Comment(req.body.comment).save().then(cmt=>{       
+      Product.findById(req.body.pid).then(prd=>{      // console.log(prd);
+          const uidIndex = prd.comments.findIndex(obj=>obj.userId == uid);
           if(uidIndex<0){               //new comment
             let tempCArr = []; tempCArr.push({ cid: cmt._id});
-            prd.comments.push({
-              userId: req.body.uid,
-              rate: req.body.rate,
+            prd.comments.push({      
+              userId: uid,
+     //         rate: req.body.rate,
               userComments: tempCArr
             });
-            prd.save();                  //save product
+            prd.save();                  //save product            
           }else{                        //to give many comment
             let userComment = prd.comments[uidIndex];    
-            userComment.rate = req.body.rate;            
+    //        userComment.rate = req.body.rate;            
             userComment.userComments = userComment.userComments.push({ cid: cmt._id});      
             prd.comments[uidIndex] = userComment;
             Product.updateOne({_id: req.body.pid},{ $set: { comments: prd.comments } })           //save product
@@ -39,7 +46,7 @@ const User = require('../models/model.user');
           }
       })
       res.json(cmt)
-    });
+    }).catch(e=>res.json(e));
    }
 
   exports.getAllComments = (req, res, next) => {
@@ -75,12 +82,16 @@ const User = require('../models/model.user');
   };
 
   exports.rateOnly =(req,res,next)=>{
+
+    let data = jwtManager.verify(req.headers.authorization);
+    let uid = data._id;
+    //console.log(uid);
         Product.findById(req.body.pid)
           .then(prd=>{
-            const uidIndex = prd.comments.findIndex(obj=>obj.userId == req.body.uid);
+            const uidIndex = prd.comments.findIndex(obj=>obj.userId == uid);
             if(uidIndex<0){               //new comment
               prd.comments.push({
-                userId: req.body.uid,
+                userId: uid,
                 rate: req.body.rate
               }); 
               prd.save();                  //save product
@@ -117,3 +128,4 @@ const User = require('../models/model.user');
 //     console.log( temp);
 //      return temp;
 //   }
+       

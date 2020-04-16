@@ -11,7 +11,7 @@ const app = express();
 
 app.use(cors());
 app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({extended : true}));
+app.use(bodyParser.urlencoded({limit: '50mb',parameterLimit: 100000,extended : true}));
 
 app.use(uaaMiddleware.authenticate);
 

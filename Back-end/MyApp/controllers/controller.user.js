@@ -16,7 +16,7 @@ const user= new User(req.body);
     //  const token=jwtManger.generate(user.toJSON());
     //  res.json({data:token,status:'sucess'})
 }
-exports.getLoginPage=(req,res,next)=>{     console.log(req.body);
+exports.getLoginPage=(req,res,next)=>{    
      const emails=req.body.email;
      const passwords=req.body.password;
      User.findOne({email:emails})

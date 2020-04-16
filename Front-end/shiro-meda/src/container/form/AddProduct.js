@@ -53,7 +53,7 @@ class AddProduct extends React.Component{
              reader.readAsDataURL(file[0]);     
              reader.onload = (event) => {        
              distFields.value = event.target.result;
-            //  console.log(distFields.value);
+             // console.log(distFields.value);
              }
         }else{
             distFields.value = event.target.value;
@@ -72,8 +72,13 @@ class AddProduct extends React.Component{
             for(let key in this.state){
                 userObj[key] = this.state[key].fields.value;
                 }
-           // console.log(userObj);
-           axios.post('http://localhost:8081/prd',userObj)
+        //   console.log(userObj);
+        let token = localStorage.getItem('taken');
+           axios.post('http://localhost:8081/save-prd',userObj,{
+            headers: {
+                'Authorization': `${token}`
+              }                
+        })
            .then(obj=>{
                alert('successfull');
            });
@@ -83,11 +88,14 @@ class AddProduct extends React.Component{
     render(){    
 
         return (
+            <Aux>
+                
             <Form allInputs={this.state}
             changed={this.inputEventHandler}
             clicked={this.formSubmitHandler}
             btn='Add Product'
             />
+            </Aux>
         );
     }
 }

@@ -10,6 +10,7 @@ import LogIn from '../container/form/Login';
 import Header from '../components/header/header';
 import Aux from '../hoc/Auxilary';
 import AddProduct from '../container/form/AddProduct';
+import WriteComment from '../container/form/newcomment';
 
 class RouterComponents extends Component{
 
@@ -26,8 +27,9 @@ class RouterComponents extends Component{
                     <Route path='/comment/:pid' exact component={Comments}/>
                     <Route path='/sign-up' exact component={Signup}/>             
                     <Route path='/login' exact component={LogIn}/>
-                    <Route path='/logout' exact  component={Home}/>
+                    <Route path='/logout' exact  component={Signup}/>  
                     <Route path='/add-prd' exact component={AddProduct}/>
+                    <Route path='/new-cmt/:pid' exact component={WriteComment}/>
                 </Switch>
             </Aux>
         );

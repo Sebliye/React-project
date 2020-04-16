@@ -1,7 +1,6 @@
 import React from 'react';
 import axios from 'axios';
 
-import NewComment from '../form/newcomment';
 import Aux from '../../hoc/Auxilary';
 import Rating from '../../components/rating/Rating'
 import CommentList from '../../components/commentlist/commentlist';
@@ -27,12 +26,12 @@ render(){
      const prod=this.state.products.map((val,i)=>{
           return <CommentList key={i} rates={val.rate} fname={val.firstname} lname={val.lastname} comment={val.comment} ></CommentList>
      })
+
 return(
 
 <Aux>  
-     <button style={{backgroundColor:'grey'}}>write Your Comment here</button>
-     {/* <Rating setRating={this.setRating}/>
-     <NewComment setComment={this.setComment}/> */}
+     <Link to={'/new-cmt/'+this.props.match.params.pid} style={{backgroundColor:'grey'}}>write Your Comment here</Link>
+     {/* <Rating setRating={this.setRating}/> */}
      {prod}      
 </Aux>
 )
