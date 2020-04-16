@@ -5,7 +5,7 @@ const star = (props)=>{
    const clicked = ()=>{
          return ()=>{
             props.starClick(props.rating,'click');
-            return props.setRating('1',2,props.rating)};
+            return props.setRating(props.rating)};
    }
 
    const mouseOver = ()=>{

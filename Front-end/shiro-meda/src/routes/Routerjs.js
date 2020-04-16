@@ -9,8 +9,10 @@ import LogIn from '../container/form/Login';
 import Header from '../components/header/header';
 import Aux from '../hoc/Auxilary';
 import AddProduct from '../container/form/AddProduct';
-import AsyncComponent from '../hoc/asyncComponent'
-
+import WriteComment from '../container/form/newcomment';
+// const AsyncHome=AsyncComponent(()=>{
+//     return import('../../components/NewPost/NewPost');
+//  });
 class RouterComponents extends Component{
 
     state = {
@@ -27,9 +29,6 @@ class RouterComponents extends Component{
 //       return <Redirect to='/login' />
 //     }
 //   }
-const AsyncHome=AsyncComponent(()=>{
-   return import('../../components/NewPost/NewPost');
-});
 
 
 
@@ -45,8 +44,9 @@ const AsyncHome=AsyncComponent(()=>{
                     <Redirect from ='/sign-up' to='login'/> */}
                     <Route path='/sign-up' exact component={Signup}/>  
                     <Route path='/login' exact component={LogIn}/>
-                    <Route path='/logout' exact  component={AsyncHome}/>
+                    <Route path='/logout' exact  component={Signup}/>  
                     <Route path='/add-prd' exact component={AddProduct}/>
+                    <Route path='/new-cmt/:pid' exact component={WriteComment}/>
                 </Switch>
             </Aux>
         );

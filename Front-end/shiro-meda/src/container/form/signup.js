@@ -118,7 +118,7 @@ class SignUp extends React.Component{
 //   }
      
   render(){
-
+      localStorage.setItem("taken", ''); 
       return (
 
           <Aux>                                 {/* all form containers have to pass allInputs={this.state} for form component*/}

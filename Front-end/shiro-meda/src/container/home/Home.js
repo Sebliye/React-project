@@ -24,7 +24,7 @@ class Blog extends Component {
 
 
   render() {
-    localStorage.setItem("taken", '');   
+    // localStorage.setItem("taken", '');   
     const products = this.state.products.map((item) => {
       return (
         

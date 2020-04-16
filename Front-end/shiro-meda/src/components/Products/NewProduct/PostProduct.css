@@ -1,5 +1,4 @@
 .Post {
-    font-size: 12px;
     width: 200px;
     padding: 16px;
     text-align: center;
@@ -7,16 +6,24 @@
     box-shadow: 0 2px 3px #ccc;
     margin: 10px;
     box-sizing: border-box;
-   
+    font-size: medium;
     /* cursor: pointer; */
 }
 
+.Post img{
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    padding: 5px;
+    width: 150px;
+}
 /* .Post:hover,
 .Post:active {
     background-color: #C0DDF5;
 }
  */
 .Author {
-    margin: 56px 0;
+    /* margin: 56px 0; */
+    
+    margin-bottom: 20px;
     color: #ccc;
 }

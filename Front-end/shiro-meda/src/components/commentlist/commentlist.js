@@ -1,6 +1,6 @@
 import React from 'react';
 import './commentlist.css';
-import ErrorBoundary from '../../container/error/errorboundary'
+import DisRating from '../rating/DisplayRating';
 const CommentList=(props)=>{
 
     let  disComments = ()=>{
@@ -22,15 +22,13 @@ const CommentList=(props)=>{
      }
 
 return(
-     <ErrorBoundary>
-       <div>
-          <div className='comment'>
+     <div className='comment'>
+          {/* <p>{props.rates}</p>  */}
+          <DisRating rate={props.rates}/>
           <h3 style={{color:'red'}}>{props.fname+" "}{props.lname}</h3>
-          <p>{props.rates}</p> 
           {disComments()}
      </div>
-     </div>
-     </ErrorBoundary>
+    
 )
 }
 export default CommentList;

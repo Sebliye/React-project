@@ -11,9 +11,10 @@ const productPost = (props) => {
          <article className="Post" style={{backgroundColor:'gainsboro'}}>
         <div className="Author">
           <div style={{color:'red'}}>
+            <img src={props.imageUrl}/>
             <div> Product Name:{props.name}</div>
             <div> Product Price: {props.price}</div>
-            <div> Product Image:{props.imageUrl}</div>
+            {/* <div> Product Image:{props.imageUrl}</div> */}
           </div>
         </div>
         <Link to={'/comment/'+props.pid}> comments </Link>
